@@ -1,14 +1,16 @@
 import { useState, useEffect, useCallback } from "react";
-import birthdayGifts from "@/assets/birthday-gifts.webp";
-import birthdayCupcakes from "@/assets/birthday-cupcakes.webp";
-import birthdayDecorations from "@/assets/birthday-decorations.webp";
-import birthdayFlowers from "@/assets/birthday-flowers.webp";
+import birthdayGifts from "@/assets/image-1.jpeg";
+import birthdayCupcakes from "@/assets/image-2.jpeg";
+import birthdayDecorations from "@/assets/image-3.jpeg";
+import birthdayFlowers from "@/assets/image-5.jpeg";
+import birthdayPlace from "@/assets/image-4.jpeg";
 
 const slides = [
-  { src: birthdayGifts, caption: "Gifts wrapped with love, just for you! 🎁" },
-  { src: birthdayCupcakes, caption: "Sweet treats for the sweetest person! 🧁" },
-  { src: birthdayDecorations, caption: "Everything's set for your special day! 🎊" },
-  { src: birthdayFlowers, caption: "Flowers as beautiful as you! 🌸" },
+  { src: birthdayGifts, caption: "You and me just meant to be together forever!" },
+  { src: birthdayCupcakes, caption: "Love is the sweetest treat of all and I want it all from you! 🧁" },
+  { src: birthdayDecorations, caption: "Everything's set for your special day you were born the cutest baby 🎊" },
+  { src: birthdayFlowers, caption: "When I hold your hand my world becomes very special! 🌸" },
+  { src: birthdayPlace, caption: "I want to travel everywhere with you! " },
 ];
 
 const PhotoCarousel = () => {

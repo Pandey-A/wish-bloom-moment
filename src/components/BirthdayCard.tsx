@@ -1,41 +1,98 @@
 import { useState } from "react";
-import cardPhoto from "@/assets/birthday-card-photo.webp";
+import cardPhoto from "@/assets/card.jpeg";
 
 const BirthdayCard = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [insidePage, setInsidePage] = useState(1);
+
+  const handleCardClick = () => {
+    if (isOpen) {
+      setIsOpen(false);
+      setInsidePage(1);
+      return;
+    }
+    setIsOpen(true);
+  };
 
   return (
     <div className="flex flex-col items-center gap-4">
       <p className="text-muted-foreground font-body text-lg">Click the card to open it! 💌</p>
 
       <div
-        className="relative cursor-pointer w-72 h-96 sm:w-80 sm:h-[26rem]"
+        className="relative cursor-pointer w-80 h-[30rem] sm:w-96 sm:h-[34rem]"
         style={{ perspective: "1200px" }}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={handleCardClick}
       >
         {/* Card back (inside - visible when open) */}
         <div
           className="absolute inset-0 rounded-2xl p-5 flex flex-col items-center justify-center text-center gap-3 border-2 border-primary/20 overflow-hidden"
           style={{ backgroundColor: "hsl(var(--card-inner))" }}
         >
-          {/* Photo inside the card */}
-          <div className="w-full h-32 sm:h-36 rounded-xl overflow-hidden border-2 border-gold/30 shadow-md mb-1">
-            <img
-              src={cardPhoto}
-              alt="Birthday celebration"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <h3 className="font-display text-2xl sm:text-3xl text-primary leading-snug">
-            May all your dreams come true!
-          </h3>
-          <p className="font-body text-muted-foreground text-xs sm:text-sm leading-relaxed">
-            On this special day, I want you to know how amazing you are. 
-            You bring so much joy to everyone around you. 
-            Here's to another year of incredible adventures! 🌟
-          </p>
-          <div className="text-3xl">🎉🥳🎊</div>
-          <p className="font-display text-lg text-secondary">With all my love ❤️</p>
+          {insidePage === 1 ? (
+            <>
+              <div className="w-full h-72 sm:h-72 rounded-xl overflow-hidden border-2 border-gold/30 shadow-md mb-1">
+                <img
+                  src={cardPhoto}
+                  alt="Birthday celebration"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <h3 className="font-display text-2xl sm:text-3xl text-primary leading-snug">
+                May all your dreams come true Khebu!
+              </h3>
+              <div className="text-3xl">🎉🥳🎊</div>
+              <p className="font-display text-lg text-secondary">With all my love From Ashuuuuu ❤️</p>
+              <button
+                type="button"
+                className="mt-1 px-4 py-1 rounded-full bg-primary text-primary-foreground text-sm font-body"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  setInsidePage(2);
+                }}
+              >
+                Next Page →
+              </button>
+            </>
+          ) : (
+            <>
+              <h3 className="font-display text-2xl sm:text-3xl text-primary leading-snug">
+                A Special Message For You 💌
+              </h3>
+              <p className="font-body text-muted-foreground text-xs sm:text-sm leading-relaxed overflow-y-auto max-h-[22rem] pr-1">
+                Happy Birthday, my Khebu ❤️
+                <br />
+                <br />
+                My lovely Bubu, my sweet  Shona, my cute little Guudu… today is all about you. 🎂✨
+                <br />
+                <br />
+                Since you turn 20 years old today  twenty beautiful years of spreading love, smiles, and magic wherever you go. And I feel so lucky that I get to love someone as amazing as you.
+                <br />
+                <br />
+                On this special day, I just want you to know how incredibly precious you are to me. You light up my world in ways you dont even realize. Your smile heals my worst days, your voice is my comfort, and your presence is my biggest blessing.
+                <br />
+                <br />
+                May this new year of your life bring you endless happiness, crazy fun adventures, success in everything you dream of, and all the love your heart can hold  especially mine. 💖
+                <br />
+                <br />
+                Stay the same pure, kind, and beautiful soul that you are. I promise to stand beside you, celebrate you, and cherish you always.
+                <br />
+                <br />
+                Happy 20th birthday, my  Shona.
+                <br />
+                I love you more than words can ever explain. 💕✨
+              </p>
+              <button
+                type="button"
+                className="mt-2 px-4 py-1 rounded-full bg-primary text-primary-foreground text-sm font-body"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  setInsidePage(1);
+                }}
+              >
+                ← Previous Page
+              </button>
+            </>
+          )}
         </div>
 
         {/* Card front (cover) - flips open */}

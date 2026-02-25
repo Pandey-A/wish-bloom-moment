@@ -26,15 +26,15 @@ const Index = () => {
         {/* Hero */}
         <div className="text-center space-y-4 animate-bounce-in">
           <p className="font-body text-muted-foreground text-lg tracking-widest uppercase">
-            🎉 It's Your Special Day 🎉
+            🎉 It's Your Special Day Khebu 🎉
           </p>
           <h1
             className="font-display text-6xl sm:text-8xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent animate-text-shimmer"
           >
-            Happy Birthday!
+            Happy Birthday My Love!
           </h1>
           <p className="font-body text-xl text-muted-foreground max-w-md mx-auto">
-            Today is all about YOU. Let's celebrate! 🥳
+            Today is all about YOU. Now let's celebrate! 🥳
           </p>
         </div>
 
@@ -54,9 +54,9 @@ const Index = () => {
         </section>
 
         {/* Wishes */}
-        <section className="w-full">
+        {/* <section className="w-full">
           <WishesSection />
-        </section>
+        </section> */}
 
         {/* Surprise Reveal */}
         <section className="w-full py-8">
