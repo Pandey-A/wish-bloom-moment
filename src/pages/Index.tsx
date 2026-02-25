@@ -5,6 +5,8 @@ import Confetti from "@/components/Confetti";
 import BirthdayCake from "@/components/BirthdayCake";
 import BirthdayCard from "@/components/BirthdayCard";
 import WishesSection from "@/components/WishesSection";
+import PhotoCarousel from "@/components/PhotoCarousel";
+import SurpriseReveal from "@/components/SurpriseReveal";
 
 const Index = () => {
   const [showConfetti, setShowConfetti] = useState(false);
@@ -20,7 +22,7 @@ const Index = () => {
       <Sparkles />
       <Confetti active={showConfetti} />
 
-      <div className="relative z-10 flex flex-col items-center gap-16 py-12 px-4 sm:py-20">
+      <div className="relative z-10 flex flex-col items-center gap-20 py-12 px-4 sm:py-20">
         {/* Hero */}
         <div className="text-center space-y-4 animate-bounce-in">
           <p className="font-body text-muted-foreground text-lg tracking-widest uppercase">
@@ -41,6 +43,11 @@ const Index = () => {
           <BirthdayCake onBlowCandles={handleBlowCandles} />
         </section>
 
+        {/* Photo Carousel */}
+        <section className="w-full">
+          <PhotoCarousel />
+        </section>
+
         {/* Birthday Card */}
         <section className="animate-bounce-in" style={{ animationDelay: "0.5s", opacity: 0 }}>
           <BirthdayCard />
@@ -49,6 +56,11 @@ const Index = () => {
         {/* Wishes */}
         <section className="w-full">
           <WishesSection />
+        </section>
+
+        {/* Surprise Reveal */}
+        <section className="w-full py-8">
+          <SurpriseReveal />
         </section>
 
         {/* Footer */}

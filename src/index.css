@@ -189,6 +189,14 @@
   animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
 }
 
+@keyframes firework-particle {
+  0% { transform: translate(0, 0); opacity: 1; }
+  100% { 
+    transform: translate(var(--fw-tx, 50px), var(--fw-ty, 50px)); 
+    opacity: 0;
+  }
+}
+
 .animate-smoke {
   animation: smoke-rise 1s ease-out forwards;
 }
