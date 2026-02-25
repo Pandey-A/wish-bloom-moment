@@ -1,11 +1,73 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import Balloons from "@/components/Balloons";
+import Sparkles from "@/components/Sparkles";
+import Confetti from "@/components/Confetti";
+import BirthdayCake from "@/components/BirthdayCake";
+import BirthdayCard from "@/components/BirthdayCard";
+import WishesSection from "@/components/WishesSection";
 
 const Index = () => {
+  const [showConfetti, setShowConfetti] = useState(false);
+
+  const handleBlowCandles = () => {
+    setShowConfetti(true);
+    setTimeout(() => setShowConfetti(false), 100);
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <div className="relative min-h-screen overflow-hidden">
+      <Balloons />
+      <Sparkles />
+      <Confetti active={showConfetti} />
+
+      <div className="relative z-10 flex flex-col items-center gap-16 py-12 px-4 sm:py-20">
+        {/* Hero */}
+        <div className="text-center space-y-4 animate-bounce-in">
+          <p className="font-body text-muted-foreground text-lg tracking-widest uppercase">
+            🎉 It's Your Special Day 🎉
+          </p>
+          <h1
+            className="font-display text-6xl sm:text-8xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent animate-text-shimmer"
+          >
+            Happy Birthday!
+          </h1>
+          <p className="font-body text-xl text-muted-foreground max-w-md mx-auto">
+            Today is all about YOU. Let's celebrate! 🥳
+          </p>
+        </div>
+
+        {/* Cake Section */}
+        <section className="animate-bounce-in" style={{ animationDelay: "0.3s", opacity: 0 }}>
+          <BirthdayCake onBlowCandles={handleBlowCandles} />
+        </section>
+
+        {/* Birthday Card */}
+        <section className="animate-bounce-in" style={{ animationDelay: "0.5s", opacity: 0 }}>
+          <BirthdayCard />
+        </section>
+
+        {/* Wishes */}
+        <section className="w-full">
+          <WishesSection />
+        </section>
+
+        {/* Footer */}
+        <footer className="text-center py-8 animate-bounce-in" style={{ animationDelay: "1s", opacity: 0 }}>
+          <p className="font-display text-3xl text-primary">
+            🎂 Cheers to another amazing year! 🎂
+          </p>
+          <div className="flex justify-center gap-3 mt-4 text-4xl">
+            {["🎈", "🎁", "🎊", "🥳", "🎉", "💖", "✨"].map((e, i) => (
+              <span
+                key={i}
+                className="animate-balloon-float"
+                style={{ animationDelay: `${i * 0.3}s` }}
+              >
+                {e}
+              </span>
+            ))}
+          </div>
+        </footer>
       </div>
     </div>
   );
